@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "author": "Diogo Cunha",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-breadboard-half",
+      "id": "bb1",
+      "top": -127.8,
+      "left": -35.6,
+      "attrs": {}
+    },
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": 39.55,
+      "left": 56.25,
+      "rotate": 90,
+      "attrs": { "builder": "pico-sdk" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -67.3,
+      "left": 205.1,
+      "rotate": 90,
+      "attrs": { "color": "green", "bounce": "1" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -64.06,
+      "left": -143.77,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 24,
+      "left": 220.25,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -24,
+      "left": 28.25,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -24,
+      "left": 47.45,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -24,
+      "left": 57.05,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": -120.8,
+      "left": 49.1,
+      "attrs": { "common": "cathode" }
+    }
+  ],
+  "connections": [
+    ["pico:GP0", "$serialMonitor:RX", "", []],
+    ["pico:GP1", "$serialMonitor:TX", "", []],
+    ["pico:GP14", "oled1:SDA", "orange", ["v-182.4", "h-96.04"]],
+    ["pico:GP15", "oled1:SCL", "cyan", ["h-19.24", "v-172.8", "h-57.9"]],
+    [
+      "pico:3V3",
+      "oled1:VCC",
+      "green",
+      ["v29.11", "h144", "v-355.2", "h-384.15"]
+    ],
+    ["pico:GND.7", "bb1:26b.j", "black", ["v38.71", "h105.6"]],
+    [
+      "bb1:26b.i",
+      "oled1:GND",
+      "black",
+      ["h9.6", "v67.2", "h38.4", "v-249.6", "h-384"]
+    ],
+    ["pico:GP5", "bb1:bn.23", "red", ["v-9.6", "h124.8"]],
+    ["r4:1", "bb1:28b.g", "", ["$bb"]],
+    ["r4:2", "bb1:bp.23", "", ["$bb"]],
+    ["pico:GP11", "bb1:11b.j", "green", ["v-57.6", "h38.4"]],
+    ["pico:GP12", "bb1:10b.j", "blue", ["v-67.2", "h38.36"]],
+    ["pico:GP13", "bb1:8b.j", "red", ["v0"]],
+    ["pico:GND.3", "bb1:9t.c", "black", ["v0"]],
+    ["r1:1", "bb1:8t.d", "", ["$bb"]],
+    ["r1:2", "bb1:8b.h", "", ["$bb"]],
+    ["r2:1", "bb1:10t.d", "", ["$bb"]],
+    ["r2:2", "bb1:10b.h", "", ["$bb"]],
+    ["r3:1", "bb1:11t.d", "", ["$bb"]],
+    ["r3:2", "bb1:11b.h", "", ["$bb"]],
+    ["rgb1:R", "bb1:8t.a", "", ["$bb"]],
+    ["rgb1:COM", "bb1:9t.b", "", ["$bb"]],
+    ["rgb1:G", "bb1:10t.a", "", ["$bb"]],
+    ["rgb1:B", "bb1:11t.a", "", ["$bb"]],
+    ["btn1:1.l", "bb1:28t.a", "", ["$bb"]],
+    ["btn1:2.l", "bb1:26t.a", "", ["$bb"]],
+    ["btn1:1.r", "bb1:28b.f", "", ["$bb"]],
+    ["btn1:2.r", "bb1:26b.f", "", ["$bb"]]
+  ],
+  "dependencies": {}
+}
